@@ -1,11 +1,30 @@
-    <h1>Film List</h1>
-    <ul>
-        {% for film in films %}
-            <li>
-                <strong>{{ film.title }}</strong><br>
-                {{ film.description }}<br>
-                <em>{{ film.review }}</em>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'add_film' %}">Add new film</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Список фильмов</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4 text-center mb-4">Список фильмов</h1>
+        <ul class="list-group">
+            {% for film in films %}
+                <li class="list-group-item">
+                    <h5 class="mb-1">{{ film.title }}</h5>
+                    <p class="mb-1">{{ film.description }}</p>
+                    <small class="text-muted">{{ film.review }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="text-center mt-4">
+            <a href="{% url 'add_film' %}" class="btn btn-primary">Добавить фильм</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
